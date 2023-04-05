@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- This view shows a start screen with a button to start the game and a button to view the high scores. -->
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.tetris.StartViewController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <Label layoutX="250.0" layoutY="100.0" text="Tetris" />
+    <children>
+        <Button onAction="#startGame" fx:id="startGameButton" layoutX="250.0" layoutY="200.0" mnemonicParsing="false" text="Start Game" />
+        <Button onAction="#viewHighScores" fx:id="viewHighScoresButton" layoutX="250.0" layoutY="250.0" mnemonicParsing="false" text="View High Scores" />
+    </children>
+</AnchorPane>
