@@ -20,8 +20,7 @@ public class ScoreboardController {
         Scoreboard scoreboard = new Scoreboard();
 
         for (Node node : scoreboardGrid.getChildren()) {
-            if (node instanceof Label) {
-                Label label = (Label) node;
+            if (node instanceof Label label) {
 
                 Object columnIndex = label.getProperties().get("gridpane-column");
                 Object rowIndex = label.getProperties().get("gridpane-row");
