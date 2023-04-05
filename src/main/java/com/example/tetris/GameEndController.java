@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class GameEndController {
@@ -18,11 +19,15 @@ public class GameEndController {
         scoreLabel.setText("Score: " + Application.getScore());
     }
 
-    public void saveScore() {
-
+    public void saveScore() throws IOException {
+        Scoreboard scoreboard = new Scoreboard();
+        scoreboard.loadScores();
+        scoreboard.addScore(nameField.getText(), Application.getScore());
+        scoreboard.saveScores();
+        Application.setScene("scoreboard-view.fxml");
     }
 
-    public void noSaveScore() {
-
+    public void noSaveScore() throws IOException {
+        Application.setScene("start-view.fxml");
     }
 }

@@ -15,7 +15,7 @@ public class StartViewController {
     }
 
     public void viewHighScores(ActionEvent event) throws IOException {
-        Application.setScene("high-scores-view.fxml");
+        Application.setScene("scoreboard-view.fxml");
     }
 
     public void exitGame() {

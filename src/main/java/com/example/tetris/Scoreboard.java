@@ -9,10 +9,13 @@ public class Scoreboard {
 
     public void addScore(String name, int score) {
         // TODO: Add score in the correct place, and remove the lowest score if there are more than 10
+        scores.add(new Pair<>(name, score));
     }
 
-    public ArrayList<Pair<String, Integer>> getScores() {
-        return scores;
+    public Pair<String, Integer> getScore(int index) {
+        if (index < 0 || index >= scores.size())
+            return null;
+        return scores.get(index);
     }
 
     public void loadScores() {
