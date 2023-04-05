@@ -22,7 +22,7 @@
             <Insets top="35.0" />
          </VBox.margin>
       </Text>
-      <GridPane alignment="TOP_CENTER" hgap="30.0" prefHeight="205.0" prefWidth="600.0">
+      <GridPane alignment="TOP_CENTER" hgap="30.0" prefHeight="217.0" prefWidth="600.0">
         <columnConstraints>
           <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
