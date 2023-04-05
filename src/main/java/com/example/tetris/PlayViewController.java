@@ -14,6 +14,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -37,6 +38,13 @@ public class PlayViewController {
     private TetrisBlock currentBlock;
     private HashSet<KeyCode> pressedKeys = new HashSet<>();
 
+    private static final ArrayList<KeyCode> konamiCode = new ArrayList<>(List.of(
+            KeyCode.UP, KeyCode.UP, KeyCode.DOWN, KeyCode.DOWN, KeyCode.LEFT,
+            KeyCode.RIGHT, KeyCode.LEFT, KeyCode.RIGHT, KeyCode.B, KeyCode.A
+    ));
+    private int konamiCodeIndex = 0;
+    private boolean konami = false;
+
     void draw() {
         ctx.setFill(Color.WHITE);
         ctx.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -48,7 +56,15 @@ public class PlayViewController {
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
                     if (colors[x][y] != null) {
-                        ctx.setFill(colors[x][y]);
+                        if (konami) {
+                            ctx.setFill(Color.rgb(
+                                    (int) (Math.random() * 255),
+                                    (int) (Math.random() * 255),
+                                    (int) (Math.random() * 255)
+                            ));
+                        } else {
+                            ctx.setFill(colors[x][y]);
+                        }
                         ctx.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
                         ctx.setFill(Color.BLACK);
                         ctx.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
@@ -80,7 +96,21 @@ public class PlayViewController {
         canvas.addEventHandler(KEY_PRESSED, e -> {
             if (pressedKeys.contains(e.getCode()))
                 return;
+
             pressedKeys.add(e.getCode());
+
+            if (!konami) {
+                if (e.getCode() == konamiCode.get(konamiCodeIndex)) {
+                    konamiCodeIndex++;
+                    System.out.println(konamiCodeIndex);
+                    if (konamiCodeIndex == konamiCode.size())
+                        konami = true;
+                    return;
+                } else {
+                    konamiCodeIndex = 0;
+                }
+            }
+
             switch (e.getCode()) {
                 case LEFT:
                     currentBlock.tryMove(-1, 0, solidifiedGrid.getGrid(width, height));
@@ -107,7 +137,7 @@ public class PlayViewController {
 
         draw();
 
-        int stepsPerSecond = 3;
+        int stepsPerSecond = 1;
 
         // render every 1/3 second
         timeline = new Timeline(new KeyFrame(Duration.millis(1000. / stepsPerSecond), e -> {
