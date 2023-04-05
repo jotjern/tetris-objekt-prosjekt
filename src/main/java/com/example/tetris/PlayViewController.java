@@ -25,7 +25,6 @@ public class PlayViewController {
     @FXML
     public Canvas canvas;
 
-    private Configuration configuration;
     private Timeline timeline;
     private GraphicsContext ctx;
 
@@ -65,12 +64,9 @@ public class PlayViewController {
             currentBlock = new TetrisBlock(width / 2, 0);
             if (currentBlock.isCollided(solidifiedGrid.getGrid(width, height))) {
                 timeline.stop();
-                Stage stage = (Stage) canvas.getScene().getWindow();
-                stage.setUserData(new HashMap<String, Object>() {{
-                    put("score", score);
-                }});
-                FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("game-end-view.fxml"));
-                stage.setScene(new Scene(fxmlLoader.load(), 800, 800));
+
+                Application.setScore(score);
+                Application.setScene("game-end-view.fxml");
             }
         }
 
@@ -79,8 +75,6 @@ public class PlayViewController {
 
     public void initialize() throws IOException {
         ctx = canvas.getGraphicsContext2D();
-
-        configuration = Configuration.fromFileOrDefault(Path.of("config.txt"));
 
         canvas.setFocusTraversable(true);
         canvas.addEventHandler(KEY_PRESSED, e -> {
@@ -105,6 +99,7 @@ public class PlayViewController {
             }
             draw();
         });
+
         canvas.addEventHandler(KEY_RELEASED, e -> pressedKeys.remove(e.getCode()));
 
         solidifiedGrid = new SolidifiedGrid(width, height);
@@ -112,7 +107,7 @@ public class PlayViewController {
 
         draw();
 
-        int stepsPerSecond = 1 + configuration.getDifficulty();
+        int stepsPerSecond = 3;
 
         // render every 1/3 second
         timeline = new Timeline(new KeyFrame(Duration.millis(1000. / stepsPerSecond), e -> {

@@ -15,21 +15,7 @@ public class GameEndController {
     private Label scoreLabel;
 
     public void initialize() {
-        Stage stage = (Stage) nameField.getScene().getWindow();
-        System.out.println(stage);
-        System.out.println(nameField);
-        Object userData = stage.getUserData();
-        if (userData instanceof HashMap) {
-            HashMap<String, Object> data = (HashMap<String, Object>) userData;
-            if (data.containsKey("score")) {
-                int score = (int) data.get("score");
-                scoreLabel.setText("Score: " + score);
-            } else {
-                scoreLabel.setText("Score: 0");
-            }
-        } else {
-            scoreLabel.setText("Score: 0");
-        }
+        scoreLabel.setText("Score: " + Application.getScore());
     }
 
     public void saveScore() {

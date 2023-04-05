@@ -10,26 +10,15 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class StartViewController {
-    Configuration configuration;
     public void startGame(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("play-view.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(), 800, 800));
+        Application.setScene("play-view.fxml");
     }
 
     public void viewHighScores(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("high-scores-view.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(), 800, 800));
+        Application.setScene("high-scores-view.fxml");
     }
 
     public void exitGame() {
         System.exit(0);
-    }
-
-    public void initialize() {
-        configuration = Configuration.fromFileOrDefault(Path.of("config.txt"));
     }
 }
