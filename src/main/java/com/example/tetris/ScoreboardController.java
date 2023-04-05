@@ -19,12 +19,6 @@ public class ScoreboardController {
     public void initialize() {
         Scoreboard scoreboard = new Scoreboard();
 
-        scoreboard.addScore("John", 100);
-        scoreboard.addScore("Jane", 200);
-        scoreboard.addScore("Jack", 300);
-
-        // Iterate over children of the grid pane
-
         for (Node node : scoreboardGrid.getChildren()) {
             if (node instanceof Label) {
                 Label label = (Label) node;
