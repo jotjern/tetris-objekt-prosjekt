@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<!-- This view shows a start screen with a button to start the game and a button to view the high scores. -->
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.tetris.StartViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
-    <Label layoutX="250.0" layoutY="100.0" text="Tetris" />
-    <children>
-        <Button onAction="#startGame" fx:id="startGameButton" layoutX="250.0" layoutY="200.0" mnemonicParsing="false" text="Start Game" />
-        <Button onAction="#viewHighScores" fx:id="viewHighScoresButton" layoutX="250.0" layoutY="250.0" mnemonicParsing="false" text="View High Scores" />
-    </children>
-</AnchorPane>
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tetris.StartViewController">
+   <children>
+      <Label text="Tetris">
+         <VBox.margin>
+            <Insets top="35.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#startGame" text="Start Game">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="viewHighScoresButton" mnemonicParsing="false" onAction="#viewHighScores" text="View High Scores">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
