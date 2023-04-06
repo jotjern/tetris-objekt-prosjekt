@@ -45,54 +45,13 @@
   læringsmål krever at begge gruppemedlemmer forstår hele kodebasen.]
 
 ## Plan for prosjekt
-
-- Beskrivelse av appen: Kort om spillet/appen, hva skal den gjøre? Hva er målet med
-  spillet?
-- Grunnklasser: Fortelle kort hva de to (minimum to, kan ha flere) grunnklassene skal
-  inneholde, og hvilken klasse som skal ha noen form for kalkulasjoner eller annen
-  logikk.
-- Filbehandling: Kort om hvilken informasjon som skal leses fra og skrives til fil.
-- Testing: Kort om hva som skal testes i appen. Merk: I den delen av prosjektet som
-  går på testing, krever vi at den viktigste funksjonaliteten dekkes av tester, og ønsker
-  derfor at dere tenker over dette allerede nå.
-- ## Plan for prosjekt
-- Beskrivelse av appen: Kort om spillet/appen, hva skal den gjøre? Hva er målet med 
+- [ ] Beskrivelse av appen: Kort om spillet/appen, hva skal den gjøre? Hva er målet med 
 spillet?
-- Grunnklasser: Fortelle kort hva de to (minimum to, kan ha flere) grunnklassene skal 
+- [ ] Grunnklasser: Fortelle kort hva de to (minimum to, kan ha flere) grunnklassene skal 
 inneholde, og hvilken klasse som skal ha noen form for kalkulasjoner eller annen 
 logikk.
-- Filbehandling: Kort om hvilken informasjon som skal leses fra og skrives til fil. 
-- Testing: Kort om hva som skal testes i appen. Merk: I den delen av prosjektet som 
-går på testing, krever vi at den viktigste funksjonaliteten dekkes av tester, og ønsker 
-erfor at dere tenker over dette allerede nå.
-- ## Plan for prosjekt
-- Beskrivelse av appen: Kort om spillet/appen, hva skal den gjøre? Hva er målet med 
-spillet?
-- Grunnklasser: Fortelle kort hva de to (minimum to, kan ha flere) grunnklassene skal 
-inneholde, og hvilken klasse som skal ha noen form for kalkulasjoner eller annen 
-logikk.
-- Filbehandling: Kort om hvilken informasjon som skal leses fra og skrives til fil. 
-- Testing: Kort om hva som skal testes i appen. Merk: I den delen av prosjektet som 
-går på testing, krever vi at den viktigste funksjonaliteten dekkes av tester, og ønsker 
-erfor at dere tenker over dette allerede nå.
-- ## Plan for prosjekt
-- Beskrivelse av appen: Kort om spillet/appen, hva skal den gjøre? Hva er målet med 
-spillet?
-- Grunnklasser: Fortelle kort hva de to (minimum to, kan ha flere) grunnklassene skal 
-inneholde, og hvilken klasse som skal ha noen form for kalkulasjoner eller annen 
-logikk.
-- Filbehandling: Kort om hvilken informasjon som skal leses fra og skrives til fil. 
-- Testing: Kort om hva som skal testes i appen. Merk: I den delen av prosjektet som 
-går på testing, krever vi at den viktigste funksjonaliteten dekkes av tester, og ønsker 
-erfor at dere tenker over dette allerede nå.
-- ## Plan for prosjekt
-- Beskrivelse av appen: Kort om spillet/appen, hva skal den gjøre? Hva er målet med 
-spillet?
-- Grunnklasser: Fortelle kort hva de to (minimum to, kan ha flere) grunnklassene skal 
-inneholde, og hvilken klasse som skal ha noen form for kalkulasjoner eller annen 
-logikk.
-- Filbehandling: Kort om hvilken informasjon som skal leses fra og skrives til fil. 
-- Testing: Kort om hva som skal testes i appen. Merk: I den delen av prosjektet som 
+- [ ] Filbehandling: Kort om hvilken informasjon som skal leses fra og skrives til fil. 
+- [ ] Testing: Kort om hva som skal testes i appen. Merk: I den delen av prosjektet som 
 går på testing, krever vi at den viktigste funksjonaliteten dekkes av tester, og ønsker 
 erfor at dere tenker over dette allerede nå.
 
