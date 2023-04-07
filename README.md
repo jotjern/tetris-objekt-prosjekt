@@ -1,19 +1,19 @@
 ## Krav til sluttprodukt
-- [ ] Appen skal bestå av minimum to interagerende klasser. 
-  - [ ] Minimum én av klassene må ha noe funksjonalitet utover ren datalagring, en
+- [x] Appen skal bestå av minimum to interagerende klasser. 
+  - [x] Minimum én av klassene må ha noe funksjonalitet utover ren datalagring, en
     form for kalkulasjoner (i en utvidet betydning av begrepet). Dette kan være
     funksjonaliteten i et spill, utregning av matematiske uttrykk, kryssjekking av
     flere datakilder for å finne felles verdier, eller lignende.
-  - [ ] Minimum én av klassene må implementere et grensesnitt (interface). Dette
+  - [x] Minimum én av klassene må implementere et grensesnitt (interface). Dette
     kan være et grensesnitt du har laget selv, eller et eksisterende grensesnitt
     som Iterable eller Comparable.
 - [ ] Alle klasser i appen skal ha innkapsling av tilstanden sin, samt validering ved
   endring av tilstanden der det er relevant.
-- [ ] Appen skal ha et brukergrensesnitt laget i FXML, med tilhørende Controller- og Appklasser. Disse klassene telles ikke som de to klassene dere skal lage selv. 
-- [ ] Appen skal ha mulighet for lesing fra og skriving til fil, og må dermed inneholde noe
+- [x] Appen skal ha et brukergrensesnitt laget i FXML, med tilhørende Controller- og Appklasser. Disse klassene telles ikke som de to klassene dere skal lage selv. 
+- [x] Appen skal ha mulighet for lesing fra og skriving til fil, og må dermed inneholde noe
   det gir mening å lagre. Det kan være tilstanden i et spill, en oversikt over varer på
   lager i en butikk, innlegg i en dagbok, eller lignende.
-  - [ ] Klassen kan ikke bruke innebygde funksjoner eller pakker som serialiserer objekter
+  - [x] Klassen kan ikke bruke innebygde funksjoner eller pakker som serialiserer objekter
     direkte, som ObjectInputStream, ObjectOutputStream eller GSON. Dere må altså
     programmere overgangen fra objekt til tekst og tilbake selv, om dere skal lagre
     objekter.

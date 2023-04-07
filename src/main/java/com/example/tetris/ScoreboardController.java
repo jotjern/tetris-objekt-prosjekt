@@ -18,6 +18,7 @@ public class ScoreboardController {
 
     public void initialize() {
         Scoreboard scoreboard = new Scoreboard();
+        scoreboard.loadScores();
 
         for (Node node : scoreboardGrid.getChildren()) {
             if (node instanceof Label label) {
@@ -26,7 +27,7 @@ public class ScoreboardController {
                 Object rowIndex = label.getProperties().get("gridpane-row");
 
                 if (columnIndex instanceof Integer && rowIndex instanceof Integer) {
-                    Pair<String, Integer> score = scoreboard.getScore((int)rowIndex - 1);
+                    Pair<String, Integer> score = scoreboard.getScore((int) rowIndex - 1);
 
                     if (score == null)
                         continue;
