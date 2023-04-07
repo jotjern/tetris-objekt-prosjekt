@@ -1,6 +1,11 @@
 package com.example.tetris;
 
 import javafx.util.Pair;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Scoreboard {
@@ -34,10 +39,45 @@ public class Scoreboard {
     }
 
     public void loadScores() {
-        // TODO: Load scores from file
+        try {
+            // Open the file containing the scores
+            File file = new File("scores.txt");
+            Scanner scanner = new Scanner(file);
+
+            // Read each line and add the score to the scores list
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(" ");
+                String name = parts[0];
+                int score = Integer.parseInt(parts[1]);
+                addScore(name, score);
+            }
+
+            // Close the scanner
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Scores file not found");
+        }
     }
 
     public void saveScores() {
-        // TODO: Save scores to file
+        try {
+            // Open a file writer to write the scores to a file
+            FileWriter writer = new FileWriter("scores.txt");
+
+            // Write each score to a line in the file
+            for (Pair<String, Integer> score : scores) {
+                String line = score.getKey() + " " + score.getValue();
+                writer.write(line + "\n");
+            }
+
+            // Close the writer
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Error saving scores");
+        }
     }
+
 }

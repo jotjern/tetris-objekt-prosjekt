@@ -1,0 +1,10 @@
+test10 19
+test11 8
+test6 5
+test9 3
+test5 2
+nora 2
+test1 1
+test3 1
+test4 1
+test7 1
