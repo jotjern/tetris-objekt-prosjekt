@@ -18,7 +18,7 @@ public class ScoreboardController {
 
     public void initialize() {
         Scoreboard scoreboard = new Scoreboard();
-        scoreboard.loadScores();
+        scoreboard.loadScores("scores.txt");
 
         for (Node node : scoreboardGrid.getChildren()) {
             if (node instanceof Label label) {

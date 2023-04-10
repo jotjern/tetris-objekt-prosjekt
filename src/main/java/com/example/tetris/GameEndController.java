@@ -21,9 +21,9 @@ public class GameEndController {
 
     public void saveScore() throws IOException {
         Scoreboard scoreboard = new Scoreboard();
-        scoreboard.loadScores();
+        scoreboard.loadScores("scores.txt");
         scoreboard.addScore(nameField.getText(), Application.getScore());
-        scoreboard.saveScores();
+        scoreboard.saveScores("scores.txt");
         Application.setScene("scoreboard-view.fxml");
     }
 

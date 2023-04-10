@@ -38,10 +38,14 @@ public class Scoreboard {
         return scores.get(index);
     }
 
-    public void loadScores() {
+    public int getSize() {
+        return scores.size();
+    }
+
+    public void loadScores(String filename) {
         try {
             // Open the file containing the scores
-            File file = new File("scores.txt");
+            File file = new File(filename);
             Scanner scanner = new Scanner(file);
 
             // Read each line and add the score to the scores list
@@ -61,10 +65,10 @@ public class Scoreboard {
         }
     }
 
-    public void saveScores() {
+    public void saveScores(String filename) {
         try {
             // Open a file writer to write the scores to a file
-            FileWriter writer = new FileWriter("scores.txt");
+            FileWriter writer = new FileWriter(filename);
 
             // Write each score to a line in the file
             for (Pair<String, Integer> score : scores) {

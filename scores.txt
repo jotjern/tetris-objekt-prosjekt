@@ -1,2 +1,1 @@
-test1 1
-test0 0
+Nora 100000
