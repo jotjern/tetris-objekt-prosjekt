@@ -16,6 +16,9 @@ public class Application extends javafx.application.Application {
     private void loadScene(String filename) throws IOException {
         URL scene = Application.class.getResource(filename);
 
+        if (scene == null)
+            throw new IllegalArgumentException("No scene with filename " + filename + " exists.");
+
         sceneMap.put(filename, scene);
     }
 
@@ -33,10 +36,16 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         Application.stage = stage;
 
-        loadScene("start-view.fxml");
-        loadScene("play-view.fxml");
-        loadScene("game-end-view.fxml");
-        loadScene("scoreboard-view.fxml");
+        try {
+            loadScene("start-view.fxml");
+            loadScene("play-view.fxml");
+            loadScene("game-end-view.fxml");
+            loadScene("scoreboard-view.fxml");
+        } catch (IOException e) {
+            System.out.println("Missing scene file(s)");
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
 
         Application.stage.setTitle("Tetris");
         Application.setScene("start-view.fxml");

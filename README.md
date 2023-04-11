@@ -17,7 +17,7 @@
     direkte, som ObjectInputStream, ObjectOutputStream eller GSON. Dere må altså
     programmere overgangen fra objekt til tekst og tilbake selv, om dere skal lagre
     objekter.
-- [ ] Det skal være implementert passende feilhåndtering på hensiktsmessige steder i
+- [x] Det skal være implementert passende feilhåndtering på hensiktsmessige steder i
   appen. 
 - [ ] Det skal være laget et sett med JUnit-tester som sjekker at funksjonaliteten i appen
   fungerer som tenkt.
