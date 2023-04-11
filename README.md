@@ -24,7 +24,7 @@
   - [x] Lag minst 6 enhetstester, der minst 1 skal teste fillagring.
   - [ ] Dokumenter valg (se neste avsnitt)
   - [x] Enhetstestene skal skrives i JUnit 5.
-- [ ] Appen skal organiseres etter Model-View-Controller prinsippet, som beskrevet
+- [x] Appen skal organiseres etter Model-View-Controller prinsippet, som beskrevet
   ovenfor. Det meste av koden som brukes for å håndtere tilstand skal befinne seg i
   modellen. En vanlig feil er å legge for mye logikk i kontrolleren. Det er derimot ikke
   et krav at kontrolleren er strippet helt for tilstand – se eksempel like før denne
@@ -57,7 +57,7 @@ erfor at dere tenker over dette allerede nå.
 
 ## Andre TODOs
 
-- [ ] Flytte logikk ut av Controller-klassene
+- [x] Flytte logikk ut av Controller-klassene
 - [ ] Skrive tester til selve tetris spillet
 - [ ] Skrive brukerdokumentasjon
 - [ ] Skrive kodedokumentasjon

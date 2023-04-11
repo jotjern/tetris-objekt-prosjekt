@@ -29,68 +29,20 @@ public class PlayViewController {
     private Timeline timeline;
     private GraphicsContext ctx;
 
-    private int score = 0;
+    private int konamiCodeIndex = 0;
+    private boolean konami = false;
+    private TetrisGame game;
 
-    int width = 10;
-    int height = 10;
-
-    private SolidifiedGrid solidifiedGrid;
-    private TetrisBlock currentBlock;
     private HashSet<KeyCode> pressedKeys = new HashSet<>();
-
     private static final ArrayList<KeyCode> konamiCode = new ArrayList<>(List.of(
             KeyCode.UP, KeyCode.UP, KeyCode.DOWN, KeyCode.DOWN, KeyCode.LEFT,
             KeyCode.RIGHT, KeyCode.LEFT, KeyCode.RIGHT, KeyCode.B, KeyCode.A
     ));
-    private int konamiCodeIndex = 0;
-    private boolean konami = false;
-
-    void draw() {
-        ctx.setFill(Color.WHITE);
-        ctx.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
-        double cellWidth = canvas.getWidth() / width;
-
-        for (ColorGrid grid : List.of(solidifiedGrid, currentBlock)) {
-            Color[][] colors = grid.getGrid(width, height);
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    if (colors[x][y] != null) {
-                        if (konami) {
-                            ctx.setFill(Color.rgb(
-                                    (int) (Math.random() * 255),
-                                    (int) (Math.random() * 255),
-                                    (int) (Math.random() * 255)
-                            ));
-                        } else {
-                            ctx.setFill(colors[x][y]);
-                        }
-                        ctx.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-                        ctx.setFill(Color.BLACK);
-                        ctx.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-                    }
-                }
-            }
-        }
-    }
-
-    public void step() throws IOException {
-        if (!currentBlock.tryMove(0, 1, solidifiedGrid.getGrid(width, height))) {
-            score += solidifiedGrid.merge(currentBlock);
-            currentBlock = new TetrisBlock(width / 2, 0);
-            if (currentBlock.isCollided(solidifiedGrid.getGrid(width, height))) {
-                timeline.stop();
-
-                Application.setScore(score);
-                Application.setScene("game-end-view.fxml");
-            }
-        }
-
-        draw();
-    }
 
     public void initialize() throws IOException {
         ctx = canvas.getGraphicsContext2D();
+
+        game = new TetrisGame();
 
         canvas.setFocusTraversable(true);
         canvas.addEventHandler(KEY_PRESSED, e -> {
@@ -112,37 +64,29 @@ public class PlayViewController {
             }
 
             switch (e.getCode()) {
-                case LEFT:
-                    currentBlock.tryMove(-1, 0, solidifiedGrid.getGrid(width, height));
-                    break;
-                case RIGHT:
-                    currentBlock.tryMove(1, 0, solidifiedGrid.getGrid(width, height));
-                    break;
-                case DOWN:
-                    currentBlock.tryMove(0, 1, solidifiedGrid.getGrid(width, height));
-                    break;
-                case R:
-                    currentBlock.tryRotate(true, solidifiedGrid.getGrid(width, height));
-                    break;
-                default:
-                    return;
+                case LEFT -> game.moveLeft();
+                case RIGHT -> game.moveRight();
+                case DOWN -> game.moveDown();
+                case R -> game.rotateRight();
+                case T -> game.rotateLeft();
+                default -> { return; }
             }
-            draw();
+
+            game.draw(ctx, (int) canvas.getWidth(), (int) canvas.getHeight());
         });
 
         canvas.addEventHandler(KEY_RELEASED, e -> pressedKeys.remove(e.getCode()));
 
-        solidifiedGrid = new SolidifiedGrid(width, height);
-        currentBlock = new TetrisBlock(width / 2, 0);
-
-        draw();
-
-        int stepsPerSecond = 1;
-
-        // render every 1/3 second
-        timeline = new Timeline(new KeyFrame(Duration.millis(1000. / stepsPerSecond), e -> {
+        timeline = new Timeline(new KeyFrame(Duration.millis(500.0), e -> {
             try {
-                step();
+                game.step();
+                game.draw(ctx, (int) canvas.getWidth(), (int) canvas.getHeight(), konami);
+
+                if (game.isGameOver()) {
+                    timeline.stop();
+                    Application.setScore(game.getScore());
+                    Application.setScene("game-end-view.fxml");
+                }
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
