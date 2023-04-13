@@ -22,7 +22,7 @@ public class GameEndController {
     public void saveScore() throws IOException {
         Scoreboard scoreboard = new Scoreboard();
         scoreboard.loadScores("scores.txt");
-        scoreboard.addScore(nameField.getText(), Application.getScore());
+        scoreboard.addScore(nameField.getText().replaceAll("\\s+", ""), Application.getScore());
         scoreboard.saveScores("scores.txt");
         Application.setScene("scoreboard-view.fxml");
     }
