@@ -1,9 +1,10 @@
 package com.example.tetris;
 
 import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.*;
 import java.util.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class ScoreboardTest {
     private Scoreboard scoreboard;
@@ -80,6 +81,7 @@ public class ScoreboardTest {
             scoreboard.addScore("Player " + i, i * 10);
         }
         assertEquals(null, scoreboard.getScore(MAX_SCORES));
+
         assertEquals(MAX_SCORES, scoreboard.getSize());
     }
 

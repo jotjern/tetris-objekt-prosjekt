@@ -74,4 +74,8 @@ public class Scoreboard {
             System.out.println("Error saving scores");
         }
     }
+
+    public int getSize() {
+        return scores.size();
+    }
 }
