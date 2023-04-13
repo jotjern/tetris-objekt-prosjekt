@@ -10,13 +10,13 @@ public class TetrisBlock implements ColorGrid {
     private int[][] shape;
 
     private static final int[][][] SHAPES = {
-            {{0, 0}, {0, 1}, {1, 0}, {1, 1}}, // square
-            {{0, -1}, {0, 0}, {0, 1}, {0, 2}}, // line
-            {{-1, 0}, {-1, 1}, {0, 0}, {1, 0}}, // L
-            {{-1, 0}, {-1, 1}, {0, 1}, {1, 1}}, // reverse L
-            {{-1, 0}, {0, 0}, {0, 1}, {1, 1}}, // Z
-            {{-1, 1}, {0, 1}, {0, 0}, {1, 0}}, // reverse Z
-            {{0, -1}, {1, -1}, {1, 0}, {1, 1}}, // T
+            { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } }, // square
+            { { 0, -1 }, { 0, 0 }, { 0, 1 }, { 0, 2 } }, // line
+            { { -1, 0 }, { -1, 1 }, { 0, 0 }, { 1, 0 } }, // L
+            { { -1, 0 }, { -1, 1 }, { 0, 1 }, { 1, 1 } }, // reverse L
+            { { -1, 0 }, { 0, 0 }, { 0, 1 }, { 1, 1 } }, // Z
+            { { -1, 1 }, { 0, 1 }, { 0, 0 }, { 1, 0 } }, // reverse Z
+            { { 0, 0 }, { 1, -1 }, { 1, 0 }, { 1, 1 } }, // T
     };
 
     public TetrisBlock(int x, int y) {
@@ -72,7 +72,8 @@ public class TetrisBlock implements ColorGrid {
             int x = point[0] + this.x;
             int y = point[1] + this.y;
 
-            // If the point is out of bounds, it counts as colliding with the wall except for the top
+            // If the point is out of bounds, it counts as colliding with the wall except
+            // for the top
             if (x < 0 || x >= solidified.length || y >= solidified[0].length)
                 return true;
 
