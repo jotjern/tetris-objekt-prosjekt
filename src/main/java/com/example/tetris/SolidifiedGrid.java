@@ -30,8 +30,8 @@ public class SolidifiedGrid implements ColorGrid {
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                if (colors[x][y] != null) {
-                    solidified[x][y] = colors[x][y];
+                if (get(x, y) == null && colors[x][y] != null) {
+                    set(x, y, colors[x][y]);
                 }
             }
         }

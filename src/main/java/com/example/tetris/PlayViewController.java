@@ -3,19 +3,13 @@ package com.example.tetris;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -39,7 +33,7 @@ public class PlayViewController {
             KeyCode.RIGHT, KeyCode.LEFT, KeyCode.RIGHT, KeyCode.B, KeyCode.A
     ));
 
-    public void initialize() throws IOException {
+    public void initialize() {
         ctx = canvas.getGraphicsContext2D();
 
         game = new TetrisGame();
@@ -72,7 +66,7 @@ public class PlayViewController {
                 default -> { return; }
             }
 
-            game.draw(ctx, (int) canvas.getWidth(), (int) canvas.getHeight());
+            game.draw(ctx, (int) canvas.getWidth(), (int) canvas.getHeight(), konami);
         });
 
         canvas.addEventHandler(KEY_RELEASED, e -> pressedKeys.remove(e.getCode()));

@@ -15,16 +15,11 @@ public class Scoreboard {
     public void addScore(String name, int score) {
 
         // Adds the new score to the scores list
-        Pair<String, Integer> newScore = new Pair<String, Integer>(name, score);
+        Pair<String, Integer> newScore = new Pair<>(name, score);
         scores.add(newScore);
 
         // Sorts the list in descending order
-        Collections.sort(scores, new Comparator<Pair<String, Integer>>() {
-            @Override
-            public int compare(Pair<String, Integer> o1, Pair<String, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
+        scores.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
         // If there are more than 10(MAX_SCORE) elements we remove the excess ones.
         if (scores.size() > MAX_SCORES) {
@@ -36,10 +31,6 @@ public class Scoreboard {
         if (index < 0 || index >= scores.size())
             return null;
         return scores.get(index);
-    }
-
-    public int getSize() {
-        return scores.size();
     }
 
     public void loadScores(String filename) {
